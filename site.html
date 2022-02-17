@@ -1,0 +1,110 @@
+
+<html><head>
+
+<title>Exam Entry</title>
+
+ <script language="javascript" type="text/javascript">
+//Create the function to alert the user of their certainty of GCSE, and if it’s their correct level
+function alertMessageGCSE() {
+alert("Are you sure that your level is GCSE?");
+}
+//Create the function to alert the user of their certainty of AS, and if it’s their correct level
+function alertMessageAS() {
+alert("Are you sure that your level is AS?");
+}
+//Create the function to alert the user of their certainty of A2, and if it’s their correct level
+function alertMessageA2() {
+alert("Are you sure that your level is A2?");
+}
+//Create the function validateForm so the empty fields can be validated, if there are no errors the form will continue with its action and the result of continuing will be true
+function validateForm() { 
+var result = true;
+var msg="";
+
+
+
+
+
+
+//If the user’s name field is empty, alert the user to enter their name
+if (document.ExamEntry.name.value=="") {
+msg+="You must enter your name \n";
+document.ExamEntry.name.focus();
+document.getElementById('name').style.color="red"
+result = false;
+}
+//If the subject field is empty alert the user to make sure the user adds their subject to continue
+if (document.ExamEntry.subject.value=="") {
+msg+="You must enter a subject \n";
+document.ExamEntry.subject.focus();
+document.getElementById('subject').style.color="red";
+result = false;
+}
+//If the exam number text field is empty, alert the user to make sure there is data in the field
+if (document.ExamEntry.examnum.value=="") {
+msg+="You must enter your Examination Number \n";
+document.ExamEntry.examnum.focus();
+document.getElementById('examnum').style.color="red"
+result=false;
+}
+//If the exam number is not exactly four digits, alert the user telling them to make it 4 digits
+if (document.ExamEntry.examnum.value.length !=4) {
+msg+="You must use 4 digits for your examination number \n";
+document.ExamEntry.examnum.focus();
+document.getElementById('examnum').style.color="red"
+result = false;
+}
+
+//This code tells the JavaScript is the fields are empty to continue and send the alert message set in the If statement.
+// It will only send the alert message if that field is empty
+if(msg==""){
+return result;
+}
+{
+alert(msg)
+return result;
+}
+}
+
+//This ends the JavaScript part of the Form  
+</script>
+</head>
+
+<body>
+
+<h1>Exam Entry Form</h1>
+
+<input name="Level" level="1" value="GCSE" onclick="return alertMessageGCSE();" type="radio">GCSE
+<input name="Level" level="2" value="AS" onclick="return alertMessageAS();" type="radio">AS
+<input name="Level" level="3" value="A2" onclick="return alertMessageA2();" type="radio">A2
+
+<form name="ExamEntry" method="post" action="success.html">
+
+  <table 0="" border="0" width="50%">
+    <tbody>
+      <tr>
+          
+ <td id="name">Name</td>
+        <td><input name="name" type="text"></td>
+      </tr>
+      <tr>
+
+ <td id="subject">Subject</td>
+        <td> <input name="subject" type="text"></td>
+      </tr>
+      <tr>
+
+<td id="examnum">ExamNumber</td>
+        <td> <input name="examnum" type="text"></td>
+      </tr>
+      <tr>
+
+<td><input name="Submit" value="Submit" onclick="return validateForm();" type="submit"></td>
+        <td><input name="Reset" value="Reset" type="reset"></td>
+      </tr>
+    </tbody>
+  </table>
+</form>
+</body>
+
+</html>
